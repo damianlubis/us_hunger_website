@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional Color Palette */
-  --primary: #1C345C;     /* Dark Navy */
-  --secondary: #2493D3;   /* Curious Blue */
-  --accent: #389CCB;      /* Shakespeare */
-  --surface: #D7DAE3;     /* Mischka */
-  --background: #ffffff;
-  --foreground: #1C345C;  /* Using Primary for main text */
+  /* Premium Professional Palette */
+  --primary: hsl(218, 54%, 23%); /* Deep Navy */
+  --secondary: hsl(202, 71%, 48%); /* Bright Action Blue */
+  --accent: hsl(199, 56%, 51%); /* Mid Soft Blue */
+  --surface: hsl(225, 20%, 94%); /* Cool Light Gray */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(218, 54%, 23%);
+  --danger: hsl(0, 72%, 51%); /* Warning Red */
 }
 
 @theme inline {
@@ -17,17 +18,50 @@
   --color-surface: var(--surface);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-danger: var(--danger);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    @apply antialiased;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tighter font-extrabold;
+    line-height: 1.1;
+  }
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.025em;
-  font-weight: 800;
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(36, 147, 211, 0.3);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
