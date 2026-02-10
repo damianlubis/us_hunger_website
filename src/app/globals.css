@@ -55,6 +55,28 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  /* Bold Visible Scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+    border: 2px solid #f1f5f9;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+
   @keyframes float {
     0%,
     100% {
@@ -63,5 +85,32 @@
     50% {
       transform: translateY(-10px);
     }
+  }
+
+  /* Google Maps InfoWindow Cleanup for Modern Look */
+  .gm-style-iw-c {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 2rem !important;
+  }
+  .gm-style-iw-tc::after {
+    background: var(--secondary) !important;
+  }
+  .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+  .gm-ui-hover-text {
+    display: none !important;
+  }
+  /* Hide the close button background/shadow */
+  .gm-style-iw-c button[title="Close"] {
+    background: white !important;
+    border-radius: 50% !important;
+    top: 12px !important;
+    right: 12px !important;
+    width: 24px !important;
+    height: 24px !important;
+    opacity: 0.8;
   }
 }

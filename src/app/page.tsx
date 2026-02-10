@@ -12,6 +12,7 @@ import {
 
 // ----------------------------------------------------------------------
 import StateImpactMap from "./components/StateImpactMap";
+import FoodBankLocator from "./components/locator/FoodBankLocator";
 
 // ----------------------------------------------------------------------
 // DATA SOURCE: NotebookLM (U.S. Hunger Grounded Data)
@@ -197,6 +198,9 @@ export default function Home() {
             </button>
           </div>
         </section>
+
+        {/* LOCATOR SECTION */}
+        <FoodBankLocator />
 
         {/* CTA SECTION */}
         <section className="py-32 px-6">

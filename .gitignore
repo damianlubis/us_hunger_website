@@ -10,3 +10,5 @@ venv/
 .venv/
 dist/
 build/
+.npm-custom-cache/
+tsconfig.tsbuildinfo
