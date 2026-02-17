@@ -12,3 +12,5 @@ dist/
 build/
 .npm-custom-cache/
 tsconfig.tsbuildinfo
+
+certificates
