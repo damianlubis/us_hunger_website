@@ -77,9 +77,9 @@ export default function Home() {
             <button onClick={() => scrollToSection('drivers')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
               Policy Briefs
             </button>
-            <button onClick={() => scrollToSection('data-library')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+            <Link href="/data" className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
               Data Library
-            </button>
+            </Link>
             <button onClick={() => scrollToSection('blackout')} className="px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md hover:shadow-xl hover:bg-black transition-all">
               Live Tracker
             </button>
