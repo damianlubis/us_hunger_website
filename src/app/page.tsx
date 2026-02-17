@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import { 
   ArrowRight, 
@@ -13,6 +15,7 @@ import {
 // ----------------------------------------------------------------------
 import StateImpactMap from "./components/StateImpactMap";
 import FoodBankLocator from "./components/locator/FoodBankLocator";
+import BlackoutCountdown from "./components/BlackoutCountdown";
 
 // ----------------------------------------------------------------------
 // DATA SOURCE: NotebookLM (U.S. Hunger Grounded Data)
@@ -42,6 +45,13 @@ const DRIVER_3 = {
 };
 
 export default function Home() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-sans bg-white text-primary">
       
@@ -63,7 +73,7 @@ export default function Home() {
                 {item}
               </Link>
             ))}
-            <button className="px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md hover:shadow-xl hover:bg-black transition-all">
+            <button onClick={() => scrollToSection('blackout')} className="px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md hover:shadow-xl hover:bg-black transition-all">
               Live Tracker
             </button>
           </div>
@@ -186,13 +196,19 @@ export default function Home() {
         </section>
 
         {/* DATA BLACKOUT SECTION */}
-        <section className="py-24 px-6 bg-surface/50 text-primary">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <SearchX className="w-16 h-16 text-primary mx-auto opacity-20" />
-            <h2 className="text-4xl font-black tracking-tight leading-none uppercase">The Federal Data Blackout</h2>
-            <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-              The USDA&apos;s cancellation of the annual Household Food Security Report marks the end of official tracking just as the OBBBA restructuring takes effect.
-            </p>
+        <section id="blackout" className="py-24 px-6 bg-surface/50 text-primary scroll-mt-24">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <div className="space-y-8">
+                <SearchX className="w-16 h-16 text-primary mx-auto opacity-20" />
+                <h2 className="text-4xl font-black tracking-tight leading-none uppercase">The Federal Data Blackout</h2>
+                <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+                The USDA&apos;s cancellation of the annual Household Food Security Report marks the end of official tracking just as the OBBBA restructuring takes effect.
+                </p>
+            </div>
+
+            {/* LIVE TRACKER COUNTDOWN */}
+            <BlackoutCountdown />
+
             <button className="inline-flex items-center gap-2 text-secondary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
               Request Independent Analysis Report <ArrowRight className="w-5 h-5" />
             </button>
