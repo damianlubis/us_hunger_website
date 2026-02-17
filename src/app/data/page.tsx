@@ -10,51 +10,51 @@ import { ArrowLeft, Search, FileText, ExternalLink, Calendar, Building2 } from '
 const CITATIONS = [
   {
     id: '1',
-    title: 'USDA FY 2026 Budget Summary',
-    agency: 'U.S. Department of Agriculture',
-    date: 'February 12, 2025',
-    url: '#',
+    title: 'SNAP Participation and Costs, 1969-2025',
+    agency: 'USDA Food and Nutrition Service',
+    date: 'January 2026',
+    url: 'https://www.fns.usda.gov/sites/default/files/resource-files/snap-annualsummary-1.pdf',
     type: 'Official Report'
   },
   {
     id: '2',
-    title: 'The Budget and Economic Outlook: 2026 to 2036',
-    agency: 'Congressional Budget Office (CBO)',
-    date: 'January 15, 2026',
-    url: '#',
-    type: 'Fiscal Projections'
+    title: 'Household Food Security in the United States in 2023',
+    agency: 'USDA Economic Research Service',
+    date: 'September 2024',
+    url: 'https://ers.usda.gov/sites/default/files/_laserfiche/publications/109896/ERR-337.pdf',
+    type: 'Research Report'
   },
   {
     id: '3',
-    title: 'SNAP Administrative Cost Analysis: State-Level Impact',
-    agency: 'NotebookLM Synthesis / CBPP',
-    date: 'October 10, 2025',
-    url: '#',
-    type: 'AI Synthesis'
+    title: 'FY 2025 USDA Budget Summary',
+    agency: 'United States Department of Agriculture',
+    date: 'March 11, 2024',
+    url: 'https://www.usda.gov/sites/default/files/documents/2025-usda-budget-summary.pdf',
+    type: 'Budget Document'
   },
   {
     id: '4',
-    title: 'OBBBA Legislative Text: Title IV - Nutrition Reform',
-    agency: 'Congress.gov',
-    date: 'December 20, 2025',
-    url: '#',
-    type: 'Legislation'
+    title: 'Policy Basics: The Supplemental Nutrition Assistance Program (SNAP)',
+    agency: 'Center on Budget and Policy Priorities',
+    date: 'November 25, 2024',
+    url: 'https://www.cbpp.org/research/food-assistance/the-supplemental-nutrition-assistance-program-snap',
+    type: 'Policy Brief'
   },
   {
     id: '5',
-    title: 'Food Insecurity Trends: Post-Pandemic Analysis',
-    agency: 'Economic Research Service',
-    date: 'November 05, 2025',
-    url: '#',
-    type: 'Research Paper'
+    title: 'FRAC Facts: SNAP Strengths 2025',
+    agency: 'Food Research & Action Center',
+    date: 'January 2025',
+    url: 'https://frac.org/wp-content/uploads/FRAC-Facts-SNAP-Strengths-2025.pdf',
+    type: 'Fact Sheet'
   },
   {
     id: '6',
-    title: 'Fiscal Cliff Projection Model v2.4',
-    agency: 'US Hunger Research Initiative',
-    date: 'March 01, 2026',
-    url: '#',
-    type: 'Internal Data'
+    title: 'SNAP Cost Shift Analysis (2026)',
+    agency: 'Center on Budget and Policy Priorities',
+    date: 'January 08, 2026',
+    url: 'https://www.cbpp.org/research/food-assistance/congressional-delay-of-snap-cost-shift-urgently-needed-to-protect-food',
+    type: 'Impact Analysis'
   }
 ];
 
@@ -151,9 +151,19 @@ export default function DataLibraryPage() {
               </div>
 
               <div className="mt-8">
-                <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-slate-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">
-                  View Source Document <ExternalLink className="w-4 h-4" />
-                </button>
+                <a 
+                  href={citation.url} 
+                  target={citation.url === '#' ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm transition-all border ${
+                    citation.url === '#' 
+                    ? 'bg-slate-50 text-slate-400 cursor-not-allowed border-transparent' 
+                    : 'bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 border-transparent hover:border-slate-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600'
+                  }`}
+                >
+                  {citation.url === '#' ? 'Verified Document Only' : 'View Source Document'}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
           ))}
