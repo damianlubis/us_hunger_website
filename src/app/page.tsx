@@ -16,6 +16,8 @@ import {
 import StateImpactMap from "./components/StateImpactMap";
 import FoodBankLocator from "./components/locator/FoodBankLocator";
 import BlackoutCountdown from "./components/BlackoutCountdown";
+import MethodologyModal from "./components/MethodologyModal";
+import { useState } from "react";
 
 // ----------------------------------------------------------------------
 // DATA SOURCE: NotebookLM (U.S. Hunger Grounded Data)
@@ -45,6 +47,8 @@ const DRIVER_3 = {
 };
 
 export default function Home() {
+  const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -68,7 +72,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden lg:flex items-center gap-10">
-            <button onClick={() => scrollToSection('methodology')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+            <button onClick={() => setIsMethodologyOpen(true)} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
               Methodology
             </button>
             <button onClick={() => scrollToSection('state-impact')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
@@ -296,6 +300,10 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <MethodologyModal 
+        isOpen={isMethodologyOpen} 
+        onClose={() => setIsMethodologyOpen(false)} 
+      />
     </div>
   );
 }
