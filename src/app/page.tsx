@@ -68,11 +68,18 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden lg:flex items-center gap-10">
-            {["Methodology", "State Impact", "Policy Briefs", "Data Library"].map((item) => (
-              <Link key={item} href="#" className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
-                {item}
-              </Link>
-            ))}
+            <button onClick={() => scrollToSection('methodology')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+              Methodology
+            </button>
+            <button onClick={() => scrollToSection('state-impact')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+              State Impact
+            </button>
+            <button onClick={() => scrollToSection('drivers')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+              Policy Briefs
+            </button>
+            <button onClick={() => scrollToSection('data-library')} className="text-sm font-bold text-slate-500 hover:text-primary transition-colors tracking-wide">
+              Data Library
+            </button>
             <button onClick={() => scrollToSection('blackout')} className="px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md hover:shadow-xl hover:bg-black transition-all">
               Live Tracker
             </button>
@@ -180,7 +187,7 @@ export default function Home() {
 
 
         {/* STATE FISCAL CLIFF SECTION */}
-        <section className="py-32 px-6 bg-white overflow-hidden text-primary">
+        <section id="state-impact" className="py-32 px-6 bg-white overflow-hidden text-primary scroll-mt-24">
           <div className="max-w-7xl mx-auto space-y-20">
             <div className="text-center space-y-6 max-w-3xl mx-auto">
               <span className="bg-secondary/10 text-secondary px-4 py-2 rounded-lg text-xs font-black uppercase tracking-widest inline-block">Fiscal Rebalancing</span>
